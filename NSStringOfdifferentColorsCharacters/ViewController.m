@@ -35,8 +35,9 @@
         
         while ((eachObject = va_arg(arguments, id))) {
 //            NSLog(@"%@",eachObject);
-            NSRange range = [fistPara rangeOfString:eachObject];
-            [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:range];
+            if (range.location != NSNotFound) {
+                [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:range];
+            }
         }
         va_end(arguments);
     }
